@@ -1,88 +1,70 @@
-//variables
-let sec = 120
-let question = document.querySelector("#question");
-let choices = document.querySelector("#answer-buttons");
-let answer = document.querySelector("#correct-wrong");
+// Hiding text and buttons that will be used for questions and choices
 
+document.getElementById("question").style.display ="none";
+document.getElementById("buttons").style.display ="none";
+document.getElementById("progress").style.display ="none";
+document.getElementById("title").style.display ="none";
 
-// quiz questions
-
-let quizQuestions = [
-    {
-        question: "What genre of video games is Final Fantasy?",
-        choices: ["FPS", "RTS", "RPG", "Sports"],
-        answer: "RPG",
-    }]
-
-// Start Button is pressed, and removes the Start Button, other text, 
-
+// Start button is clicked, start screen is hidden and then quiz display shows up
 
 function startQuiz() {
     document.getElementById("start").style.display = "none";
-    quizQuestions.innerHTML = "";
+    document.getElementById("question").style.display ="flex";
+    document.getElementById("buttons").style.display ="flex";
+    document.getElementById("progress").style.display ="flex";
+    document.getElementById("title").style.display ="flex";
+    populate();
+}
 
+function populate() {
+    if(quiz.isEnded()) {
+        showScores();
+    }
+    else {
+        //show question
+        let element = document.getElementById("question");
+        element.innerHTML = quiz.getQuestionIndex().text;
 
-//     for (let i = 0; i < quizQuestions.length; i++) {
-//         let quizQuestions = quizQuestions[i];
+        //show choices
+        let choices = quiz.getQuestionIndex().choices;
+        for(let i = 0; i < choices.length; i++) {
+            let element = document.getElementById("choice" + i);
+            element.innerHTML = choices[i];
+            guess("btn" + i, choices[i]);
+        }
+        showProgress();
+    }
+};
+
+function guess(id, guess) {
+    let button = document.getElementById(id);
+    button.onclick = function() {
+        quiz.guess(guess);
+        populate();
+    }
+}
+
+function showProgress() {
+    let currentQuestionNumber = quiz.quesitonIndex + 1;
+    let element = document.getElementById("progress");
+    element.innerHTML = "Question " + currentQuestionNumber + "of " + quiz.questions.length;
+
+}
+
+function showScores() {
+    let gameOverHtml = "<h1>Result</h1>";
+    gameOverHtml += "<h2 id='score'> Your scores: " + quiz.score + "</h2>";
+    let element = document.getElementById("quiz");
+    element.innerHTML = gameOverHtml;
+}
+
+let questions = [
+    new Question ("What video game genre is Final Fantasy?",["FPS", "RTS", "RPG", "Sports"], "RPG"),
+    new Question ("Which Final Fantasy game has the character Cloud Strife?",  ["FFI", "FFVII", "FFVIII", "FFXV"], "FFVII"),
+    new Question ("What character name is used in most games?", ["Cid", "Terra", "Erdrick", "Bob"], "Cid"),
+    new Question ("Final Fantasy III(snes) is really:", ["FFIV", "FFVI", "FFIX", "FFIII"], "FFVI")
+];
     
-//         let h1 = document.createElement("h1");
-//         h1.textContent = question;
-//         question.appendChild(h1);
-//     }
-// }
-// start box closes, quiz box displays
+let quiz = new Quiz(questions);
 
-
- 
-// After Question it answered, we need to go to the next question
-
-
-
-
-
-
-
-
-
-
-// make a list of objects representing the quiz data
-// remember that when we want to organize data in JS we typically use objects
-// let Questions = [
-//     {
-//       question: "What genre of video games is Final Fantasy?",
-//       choices: ["FPS", "RTS", "RPG", "Sports"],
-//       answer: "RPG",
-//     }]
-//     // },
-//     {
-//       question: "Which Final Fantasy game has the character Cloud Strife?",
-//       choices: ["FFI", "FFVII", "FFVIII", "FFXV"],
-//       answer: "FFVII"
-//     },
-//     {
-//       question: "What character name is used in most games?",
-//       choices: ["Cid", "Terra", "Erdrick", "Bob"],
-//       answer: "Cid"
-//     },
-//     {
-//       question: "Final Fantasy III(snes) is really:",
-//       choices: ["FFIV", "FFVI", "FFIX", FFIII],
-//       answer: "FFVI"
-//     },
-//   ];
-//   // keep track of the question we are currently on
-//   let currentQuestion = 0;
-//   function render() {
-//     let questionData = Questions[currentQuestion];
-//     $("#question").text(questionData.question);
-//     $("#options").empty();
-//     for (let choice of questionData.choices) {
-//       $("#options").append($("<li>").text(choice))
-//     }
-//     currentQuestion += 1;
-//     if (currentQuestion === questionData.length) {
-//         currentQuestion = 0;
-//     }
-//   }
-//   $("#submit").click(render)
-// render()
+populate();
