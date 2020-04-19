@@ -9,15 +9,20 @@
     <title>Final Fantasy Quiz</title>
 </head>
 <body>
+    <nav>
+        <div id="countdown"></div>
+        <h1 id=title> Final Fantasy Quiz</h1>
+        <div id="score"></div>
+    </nav>
+
+
     <div class="grid">
         <div id="quiz">
             <div id="start">
-                <h1> Final Fantasy Quiz</h1>
-                <h1> Click to play!</h1>
+                <h1> Click start to play!</h1>
                 <button id="btn" onclick="startQuiz()">Start</button>
             </div>
-            <h1 id="title">Final Fantasy Quiz</h1>
-            <hr style="margin-top: 20px">
+            <!-- <hr style="margin-top: 20px"> -->
 
             <p id="question"></p>
 
@@ -28,10 +33,11 @@
                 <button id="btn3"><span id="choice3"></span></button>
             </div>
 
-            <hr style="margin-top: 50px">
+            <!-- <hr style="margin-top: 50px"> -->
 
             <footer>
-                <p id="progress">Question 1 of 4</p>
+                <p id="correct">Correct!</p>
+                <p id="wrong">Wrong!</p>
             </footer>
         </div>
     </div>
