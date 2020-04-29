@@ -1,104 +1,140 @@
-body {
+* {
+    background-color: black;
+}
+
+.timer {
+    color: white;
     background-color: blue;
+}
+a {
+    color: white;
+}
+
+li {
+    background-color: blue;
+    color: white;
+}
+
+
+body {
+    background-color:black;
     align-items: center;
 }
 
-.grid {
+.navbar {
+    background-color: blue;
+    border-radius: 25px;
+    border: 5px solid white;
+    text-align: center;
+    padding: 10px 50px px 50px;
+    margin-top: 25px;
+    margin-bottom: 75px;
+}   
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    background-color: blue;
+    padding: 2px 0px;
+}
+
+h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background-color: blue;
+    padding: 2px 0px;
+}
+
+.container {
     width: 500px;
     height: 300px;
     margin: 0 auto;
     background-color: blue;
     padding: 10px 50px 50px 50px;
-    border-radius: 50px;
+    border-radius: 25px;
     border: 5px solid white;
     text-align: center;
 }
 
-.grid h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+.quizBox {
     background-color: blue;
-    font-size: 40px;
-    text-align: center;
-    color: white;
-    padding: 2px 0px;
-    border-radius: 50px;
-    text-align: center;
 }
 
-.grid #question {
+
+
+.#question {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     color: white;
+    background-color: blue;
     text-align: center;
 }
 
-#buttons {
-    margin-top: auto;
+#questionBox {
+    background-color: blue;
+    align-content: center;
 }
 
-#btn {
+button {
+    background-color: blue;
+}
+
+p {
+    background-color: blue;
+    color: white;
+}
+
+
+.btn {
     font-size: 20px;
     border: 4px solid white;
     background-color: blue;
-    border-radius: 50px;
+    border-radius: 15px;
     border: 3px solid white;
-    padding: 5px;
+    padding: 5px, 5px;
     text-decoration: none;
     color: white;
     margin: 0 auto;
   }
 
-#btn:hover {
+button {
+    font-size: 20px;
+    border: 4px solid white;
+    background-color: blue;
+    border-radius: 15px;
+    border: 3px solid white;
+    padding: 5px, 5px;
+    text-decoration: none;
+    color: white;
+    margin: 0 auto;
+  }
+
+#startBtn {
+    margin-top: 50px;
+}
+
+.btn:hover {
     cursor: pointer;
     background-color: darkblue;
 }   
 
-#btn0, #btn1, #btn2, #btn3 {
-    background-color: blue;
-    width: 250px;
-    font-size: 16px;
-    color: white;
-    border: 1px solid white;
-    border-radius: 50px;
-    margin: 0 auto;
-    padding: 10px, 10px;
+#choices {
+    background-color: blue; 
 }
 
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
-    cursor: pointer;
-    background-color: darkblue;
-}    
 
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
-    outline: black;
-}    
 
-nav {
-    background-color: blue;
-    padding: 10px, 10px;
-    margin: 0 auto;
-}
-
-#countdown {
+/* #countdown {
     float: left;
 }
 
 #score {
     float: right;
-}
+} */
 
-#title {
-    font-size: 60px;
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    float: none;
-    flex: none;
-    text-align: center
-    ;
-}
 
-footer {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 20px;
-    color: white;
-}

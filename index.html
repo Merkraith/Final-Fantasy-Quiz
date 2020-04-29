@@ -4,45 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./newstyles.css">
     <title>Final Fantasy Quiz</title>
 </head>
+
 <body>
-    <nav>
-        <div id="countdown"></div>
-        <h1 id=title> Final Fantasy Quiz</h1>
-        <div id="score"></div>
+    <nav class="col-10 mx-auto navbar">
+        <li class="nav-item text-right">
+            <a href="#">View Highscores</a>
+        </li>
+
+        <h1>Final Fantasy Quiz</h1>
+
+        <li class="nav-item text-right">
+            Time:
+            <span id="timer">0</span>
+        </li>
     </nav>
 
+    <div class="container">
+        <div class="quizBox" id="startBox">
 
-    <div class="grid">
-        <div id="quiz">
-            <div id="start">
-                <h1> Click start to play!</h1>
-                <button id="btn" onclick="startQuiz()">Start</button>
+            <h1> Click start to play!</h1>
+            <h3>90 seconds to answer 4 questions</h3>
+            <h3>Wrong answers decrease time</h3>
+
+            <button class="btn" id="startBtn" onclick="startQuiz()">Start</button>
+
+        </div>
+
+        <div class="quizBox" id="questionBox">
+
+            <p id="question"></p><br>
+
+            <div id="choices">
+
             </div>
-            <!-- <hr style="margin-top: 20px"> -->
-
-            <p id="question"></p>
-
-            <div id="buttons">
-                <button id="btn0"><span id="choice0"></span></button>
-                <button id="btn1"><span id="choice1"></span></button>
-                <button id="btn2"><span id="choice2"></span></button>
-                <button id="btn3"><span id="choice3"></span></button>
-            </div>
-
-            <!-- <hr style="margin-top: 50px"> -->
-
-            <footer>
-                <p id="correct">Correct!</p>
-                <p id="wrong">Wrong!</p>
-            </footer>
         </div>
     </div>
-    <script src="quiz_controller.js"></script>
-    <script src="question.js"></script>
+
     <script src="script.js"></script>
 </body>
+
 </html>
