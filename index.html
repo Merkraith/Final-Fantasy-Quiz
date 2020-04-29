@@ -11,17 +11,19 @@
 </head>
 
 <body>
-    <nav class="col-10 mx-auto navbar">
-        <li class="nav-item text-right">
-            <a href="#">View Highscores</a>
-        </li>
+    <nav class="col-8 mx-auto navbar">
+        <p class="nav-item text-right">
+            <button class="btn" id="highscores" onclick="showHighScores()">View Highscores</button>
+        </p>
 
-        <h1>Final Fantasy Quiz</h1>
+        <p>
+            <h1>Final Fantasy Quiz</h1>
+        </p>
 
-        <li class="nav-item text-right">
+        <p class="nav-item text-right">
             Time:
-            <span id="timer">0</span>
-        </li>
+            <span class="timer" id="countdown">00:00</span>
+        </p>
     </nav>
 
     <div class="container">
@@ -36,13 +38,15 @@
         </div>
 
         <div class="quizBox" id="questionBox">
-
-            <p id="question"></p><br>
-
-            <div id="choices">
-
+            <div>
+                <p id="question"></p>
             </div>
-        </div>
+            <div id="choices">
+                <!-- buttons will be appended here  -->
+            </div>
+            <div>
+                <p id="correct"></p>
+            </div>
     </div>
 
     <script src="script.js"></script>
