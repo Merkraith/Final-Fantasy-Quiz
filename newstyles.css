@@ -83,9 +83,7 @@ h3 {
     align-content: center;
 }
 
-button {
-    background-color: blue;
-}
+
 
 p {
     background-color: blue;
@@ -111,10 +109,10 @@ button {
     background-color: blue;
     border-radius: 15px;
     border: 3px solid white;
-    padding: 5px, 5px;
+    padding: 5px, 10px, 5px, 10px;
     text-decoration: none;
     color: white;
-    margin: 0 auto;
+    margin: 5px, 5px, 5px, 5px;
   }
 
 button:hover {
@@ -122,6 +120,11 @@ button:hover {
     background-color: darkblue;
     color: white;
 }  
+
+.row {
+    width: 300px;
+    height: 50px;
+}
 
 #startBtn {
     margin-top: 50px;

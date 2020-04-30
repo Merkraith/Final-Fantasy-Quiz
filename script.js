@@ -80,7 +80,9 @@ let quizQuestions = [
 
     for (i = 0; i < currentQuestion.choices.length; i++) {
         const button = document.createElement("button");
+        
         button.textContent = currentQuestion.choices[i];
+        
         document.getElementById("choices").appendChild(button);
         button.addEventListener("click", Answer);
     }
