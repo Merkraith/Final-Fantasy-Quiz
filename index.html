@@ -17,7 +17,7 @@
         </p>
 
         <p>
-            <h1>Final Fantasy Quiz</h1>
+        <h1>Final Fantasy Quiz</h1>
         </p>
 
         <p class="nav-item text-right">
@@ -30,26 +30,59 @@
         <div class="quizBox" id="startBox">
 
             <h1> Click start to play!</h1>
-            <h3>90 seconds to answer 4 questions</h3>
-            <h3>Wrong answers decrease time</h3>
+            <h3>60 seconds to answer 4 questions</h3>
+            <h3>Wrong answers decrease 10 seconds</h3>
 
             <button class="btn" id="startBtn" onclick="startQuiz()">Start</button>
 
         </div>
 
         <div class="quizBox" id="questionBox">
-            <div class="row">
-                <p id="question"></p>
-            </div>
-            <div class="row" id="choices">
-                <!-- <div class="buttonCreate"></div> -->
-            </div>
-            <div class="row">
-                <p id="correct"></p>
-            </div>
-    </div>
+            <div class="row mx-auto">
+                <div class="col">
+                    <p id="question"></p>
+                </div>
 
-    <script src="script.js"></script>
+                <div class="w-100"></div>
+
+
+                <div class="col" id="choices">
+                </div>
+
+                <div class="w-100"></div>
+
+                <div class="col">
+                    <p id="correct"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quizBox" id="scoreBox">
+            <div class="row mx-auto">
+                <div class="col">
+                    <p id="endMsg"></p>
+                    <p id="userScore"></p>
+                    <textarea id=user-input></textarea>
+                    <button class="btn" id="submit-score" onclick="submitScore()">Submit Score</button>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="quizBox" id="highscoreBox">
+            <div class="row mx-auto">
+                <div class="col">
+                    <h3>Highscores!</h3>
+                    <li class="print-hightscore"></li>
+                    <button class="btn" id="goback" onclick="restartQuiz()">Go Back</button>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script src="script.js"></script>
 </body>
 
 </html>

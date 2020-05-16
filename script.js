@@ -4,16 +4,25 @@ let questionDiv = document.getElementById("question");
 let correctMessage = document.querySelector("#correct");
 let timerEl = document.querySelector("#timer");
 let countdownEl = document.querySelector("#countdown");
+let endMsg = document.querySelector("#endMsg")
 let currentQuestion;
 let currentChoices;
+let currentIndex = 0;
 let timeLeft = 0;
 let timer = document.querySelector("#timer");
 let timerInterval;
-
+let score = 1
+let scoreMessage = document.querySelector("#userScore")
+let userInput = document.querySelector("#user-input")
+let highscores = JSON.parse(localStorage.getItem("highscores"))
 
 // Hiding text and buttons that will be used for questions and choices
 
 document.querySelector("#questionBox").style.display = "none";
+document.querySelector("#scoreBox").style.display = "none";
+document.querySelector("#highscoreBox").style.display = "none";
+
+
 
 // Start button is clicked, start screen is hidden and then quiz display shows up
 
@@ -26,8 +35,8 @@ function startQuiz() {
 
 function startTimer() {
 
-    timeLeft = 90;
-        timerInterval = setInterval(function () {
+    timeLeft = 60;
+    timerInterval = setInterval(function () {
         countdownEl.textContent = timeLeft;
         timeLeft--;
         (countdownEl.textContent = timeLeft);
@@ -35,7 +44,6 @@ function startTimer() {
         if (timeLeft === 0) {
             endGame();
         }
-        // timeLeft--10);
     }, 1000);
 }
 
@@ -46,26 +54,26 @@ let quizQuestions = [
         question: "What genre of video games is Final Fantasy?",
         choices: ["FPS", "RTS", "RPG", "Sports"],
         answer: "RPG",
-      },
-      {
+    },
+    {
         question: "Which Final Fantasy game has the character Cloud Strife?",
         choices: ["FFI", "FFVII", "FFVIII", "FFXV"],
         answer: "FFVII"
-      },
-      {
+    },
+    {
         question: "What character name is used in most games?",
         choices: ["Cid", "Terra", "Erdrick", "Bob"],
         answer: "Cid"
-      },
-      {
+    },
+    {
         question: "Final Fantasy III(snes) is really:",
         choices: ["FFIV", "FFVI", "FFIX", "FFIII"],
         answer: "FFVI"
-      },
-  ];
-  // keep track of the question we are currently on
+    },
+];
+// keep track of the question we are currently on
 
-  function quizgame() {
+function quizgame() {
     if (quizQuestions.length === 0) {
         endGame();
     }
@@ -80,30 +88,71 @@ let quizQuestions = [
 
     for (i = 0; i < currentQuestion.choices.length; i++) {
         const button = document.createElement("button");
-        
+
         button.textContent = currentQuestion.choices[i];
-        
+
         document.getElementById("choices").appendChild(button);
-        button.addEventListener("click", Answer);
+        button.addEventListener("click", checkAnswer);
     }
 }
 
-function Answer() {
-    
+function checkAnswer() {
+
     if (this.textContent === currentQuestion.answer) {
         correctMessage.textContent = "Correct!";
         quizgame();
     }
     else {
-        correctMessage.textContent = "Wrong answer, you lose 15 seconds";
-        timeLeft = timeLeft - 15;
+        correctMessage.textContent = "Wrong answer, you lose 10 seconds";
+        timeLeft = timeLeft - 10;
         quizgame();
     }
 }
 
+
 function endGame() {
-    console.log(timeLeft);
-    // when timer reaches zero trigger alert and create an input element to submit initials to local storage
-        clearInterval(timerInterval);
-        alert("Time is up!")
+    console.log(timeLeft)
+
+    clearInterval(timerInterval)
+    document.querySelector("#questionBox").style.display = "none";
+    document.querySelector("#scoreBox").style.display = "flex";
+}
+
+score = ((score) * (timeLeft));
+
+let soundfile = "https://www.myinstants.com/media/sounds/final-fantasy-vii-victory-fanfare-1.mp3"
+
+if (isNaN(score)) {
+    endMsg.textContent = "Your final score is 0";
+} else {
+    endMsg.innerHTML = "You finished the quiz!";
+    scoreMessage.innerHTML = "Your final score is: " + score;
+}
+
+
+function submitScore() {
+
+document.querySelector("#scoreBox").style.display = "none";
+document.querySelector("#highscoreBox").style.display = "flex";
+
+
+
+
+
+
+}
+
+function showHighScores() {
+    document.querySelector("#startBox").style.display = "none";
+    document.querySelector("#questionBox").style.display = "none";
+    document.querySelector("#scoreBox").style.display = "none";
+    document.querySelector("#highscoreBox").style.display = "flex";
+
+}
+
+function restartQuiz() {
+    document.querySelector("#startBox").style.display = "block";
+    document.querySelector("#questionBox").style.display = "none";
+    document.querySelector("#scoreBox").style.display = "none";
+    document.querySelector("#highscoreBox").style.display = "none";
 }
